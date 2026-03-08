@@ -716,36 +716,36 @@ export default function App() {
           <SectionTitle subtitle="Objetivos">O Que Você Vai Conquistar</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
             {[
-              { title: "Domínio Técnico", desc: "Aprenda a biomecânica real por trás de cada exercício e como adaptá-la para cada aluno.", icon: CheckCircle2 },
-              { title: "Networking de Elite", desc: "Conecte-se com os maiores nomes do Pilates e crie oportunidades reais de carreira.", icon: MessageCircle },
-              { title: "Diferenciação", desc: "Saia do evento com um selo de excelência que o posiciona no topo do mercado.", icon: Info },
-            ].map((obj, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: i * 0.2 }}
-                className="relative group"
-              >
-                <div className="mb-10 relative">
-                  <div className="w-24 h-24 bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center relative z-10 group-hover:bg-brand-accent group-hover:text-brand-primary transition-all duration-500">
-                    <obj.icon size={40} />
-                  </div>
-                  <div className="absolute -top-4 -left-4 w-24 h-24 border border-brand-accent/10 -z-0 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform" />
-                </div>
-                <h4 className="text-3xl font-display font-bold mb-6 text-brand-lavender group-hover:text-brand-accent transition-colors uppercase tracking-tight">{obj.title}</h4>
-                <p className="text-brand-lavender/60 leading-relaxed text-lg">{obj.desc}</p>
-                
-                {/* Visual Graphic Element */}
-                <div className="mt-8 h-1 w-full bg-white/5 overflow-hidden">
-                  <motion.div 
-                    initial={{ x: "-100%" }}
-                    whileInView={{ x: "0%" }}
-                    transition={{ duration: 1.5, delay: i * 0.3 }}
-                    className="h-full w-full bg-brand-accent"
-                  />
-                </div>
-              </motion.div>
+  { title: "Domínio Técnico", desc: "Aprenda a biomecânica real por trás de cada exercício e como adaptá-la para cada aluno.", icon: CheckCircle2 },
+  { title: "Networking de Elite", desc: "Conecte-se com os maiores nomes do Pilates e crie oportunidades reais de carreira.", icon: MessageCircle },
+  { title: "Diferenciação", desc: "Saia do evento com um selo de excelência que o posiciona no topo do mercado.", icon: Info },
+].map((obj, i) => {
+  const Icon = obj.icon;
+
+  return (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: i * 0.2 }}
+      className="relative group"
+    >
+      <div className="mb-10 relative">
+        <div className="w-24 h-24 bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center relative z-10">
+          <Icon size={40} />
+        </div>
+      </div>
+
+      <h4 className="text-3xl font-display font-bold mb-6 text-brand-lavender uppercase tracking-tight">
+        {obj.title}
+      </h4>
+
+      <p className="text-brand-lavender/60 leading-relaxed text-lg">
+        {obj.desc}
+      </p>
+    </motion.div>
+  );
+})}
             ))}
           </div>
         </div>
