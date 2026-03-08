@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
+import { motion, AnimatePresence } from 'framer-motion';import { 
   Calendar, 
   MapPin, 
   Users, 
