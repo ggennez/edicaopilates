@@ -45,7 +45,7 @@ export const SPEAKERS: Speaker[] = [
     bio: 'Referência nacional no método clássico, Paula traz uma abordagem purista e transformadora para o movimento.',
     lecture: 'A Essência do Contrology',
     workshop: 'Pilates na Escola',
-    image: 'https://picsum.photos/seed/paula/600/800'
+    image: '/Foto-PaulaLeao.png'
   },
   {
     id: '2',
@@ -54,7 +54,7 @@ export const SPEAKERS: Speaker[] = [
     bio: 'Com vasta experiência em reabilitação, Janaína conecta a ciência da fisioterapia com a prática do Pilates.',
     lecture: 'Coluna Vertebral: Mitos e Verdades',
     workshop: 'Avaliação e Tratamento Avançado',
-    image: 'https://picsum.photos/seed/janaina/600/800'
+    image: '/FotoJanaina.png'
   },
   {
     id: '3',
@@ -63,7 +63,7 @@ export const SPEAKERS: Speaker[] = [
     bio: 'Especialista em saúde feminina, Ge Gurak aborda as fases da vida da mulher e como o Pilates atua em cada uma delas.',
     lecture: 'Pilates e Saúde da Mulher',
     workshop: 'Mulheres 40+: Climatério e Menopausa',
-    image: 'https://picsum.photos/seed/gegurak/600/800'
+    image: '/Foto-Gegurak.png'
   }
 ];
 
