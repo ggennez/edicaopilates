@@ -23,10 +23,7 @@ import { SPEAKERS, SCHEDULE, TESTIMONIALS, PROMISES, Speaker, DaySchedule } from
 const SocialProofBar = () => {
   const [index, setIndex] = useState(0);
   const messages = [
-    "🔥 12 pessoas se inscreveram nas últimas 2 horas",
-    "✨ Restam apenas 15 vagas para o Ingresso VIP",
-    "🚀 85% das vagas já foram preenchidas",
-    "💎 Juliana M. acabou de garantir sua vaga Elite"
+    "Ingressos LIBERADOS"
   ];
 
   React.useEffect(() => {
@@ -53,6 +50,17 @@ const SocialProofBar = () => {
     </div>
   );
 };
+
+const StickyPurchaseBar = () => (
+  <div className="fixed bottom-0 left-0 w-full z-50 md:hidden p-4 bg-brand-primary border-t border-white/10">
+    <a
+      href="#planos"
+      className="w-full py-4 bg-brand-accent text-brand-primary font-bold text-center block uppercase tracking-widest"
+    >
+      Garantir Minha Vaga
+    </a>
+  </div>
+);
 
 const Countdown = ({ compact = false }: { compact?: boolean }) => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -89,23 +97,23 @@ const Countdown = ({ compact = false }: { compact?: boolean }) => {
   }
 
   return (
-    <div className="flex gap-4 md:gap-8">
-      {[
-        { label: 'Dias', value: timeLeft.days },
-        { label: 'Horas', value: timeLeft.hours },
-        { label: 'Minutos', value: timeLeft.minutes },
-        { label: 'Segundos', value: timeLeft.seconds }
-      ].map((item, i) => (
-        <div key={i} className="text-center">
-          <div className="text-2xl md:text-4xl font-display font-bold text-brand-accent mb-1 tabular-nums">
-            {String(item.value).padStart(2, '0')}
-          </div>
-          <div className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-brand-lavender/40">
-            {item.label}
-          </div>
+        <div className="flex gap-1 md:gap-4">
+          {[
+            { label: 'Dias', value: timeLeft.days },
+            { label: 'Horas', value: timeLeft.hours },
+            { label: 'Minutos', value: timeLeft.minutes },
+            { label: 'Segundos', value: timeLeft.seconds }
+          ].map((item, i) => (
+            <div key={i} className="text-center w-12 h-12 md:w-20 md:h-20 border border-brand-accent/20 flex flex-col items-center justify-center bg-brand-accent/5">
+              <div className="text-sm md:text-2xl font-display font-bold text-brand-accent mb-0.5 tabular-nums">
+                {String(item.value).padStart(2, '0')}
+              </div>
+              <div className="text-[6px] md:text-[9px] font-bold uppercase tracking-widest text-brand-lavender/60">
+                {item.label}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
   );
 };
 
@@ -323,10 +331,11 @@ export default function App() {
   const [activeDay, setActiveDay] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const whatsappLink = "https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre o Edição Pilates.";
+  const whatsappLink = "https://wa.me/5543999955954?text=Olá! Gostaria de saber mais sobre o Edição Pilates.";
 
   return (
     <div className="min-h-screen bg-brand-primary overflow-x-hidden text-brand-lavender selection:bg-brand-accent selection:text-brand-primary">
+      <StickyPurchaseBar />
       {/* Background Grid & Animated Gradients */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
@@ -344,7 +353,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="font-display font-bold text-2xl md:text-3xl tracking-tighter group cursor-pointer">
-              EDIÇÃO <span className="text-brand-accent group-hover:text-brand-lavender transition-colors duration-500">PILATES</span>
+              <img src="/logo-completo.svg" alt="Edição Pilates" className="h-8 md:h-10" />
             </div>
             <Countdown compact />
           </div>
@@ -411,7 +420,16 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative pt-64 pb-20 md:pt-80 md:pb-32 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/efeito-pilates-4.png" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover opacity-100"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -429,18 +447,16 @@ export default function App() {
               </motion.span>
               <h1 className="text-5xl sm:text-7xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight text-brand-lavender">
                 A Evolução <br />
-                <span className="gradient-text">do Movimento</span>
+                <span className="text-brand-lavender">do Movimento</span>
               </h1>
             </div>
 
             <div className="flex justify-center mb-16">
               <div className="bg-white/[0.02] border border-white/5 p-6 glass-card max-w-sm w-full backdrop-blur-2xl relative group flex flex-col items-center">
                 <div className="absolute -inset-0.5 bg-brand-accent/20 blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
-                <div className="relative w-full">
+                <div className="relative w-full flex flex-col items-center">
                   <p className="text-[8px] font-bold tracking-[0.4em] text-brand-accent/60 uppercase mb-4 text-center">O evento começa em</p>
-                  <div className="flex justify-center">
-                    <Countdown />
-                  </div>
+                  <Countdown />
                 </div>
               </div>
             </div>
@@ -486,12 +502,13 @@ export default function App() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1920" 
+            src="/edicao-pilates-foto3.jpeg" 
             alt="Pilates Professional Environment" 
-            className="w-full h-full object-cover grayscale opacity-20"
+            className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-brand-primary/90 to-brand-primary" />
+          <div className="absolute inset-0 bg-brand-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -506,7 +523,7 @@ export default function App() {
               >
                 <span className="text-brand-accent font-display text-[10px] tracking-[0.4em] uppercase mb-6 block">O Evento</span>
                 <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight text-brand-lavender mb-8">
-                  Para quem busca <br /> o <span className="text-brand-accent">topo</span>
+                  Pra quem busca <br /> o <span className="text-brand-accent">topo</span>
                 </h2>
                 <p className="text-lg text-brand-lavender/60 leading-relaxed">
                   A <span className="text-brand-accent font-bold">Edição Pilates</span> não é apenas mais um evento técnico. É um manifesto para profissionais que se recusam a ser medíocres.
@@ -523,9 +540,9 @@ export default function App() {
                 className="relative z-10 w-full aspect-[3/4] max-w-[320px] overflow-hidden border border-white/10 shadow-2xl"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Pilates Movement Empathy" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                  src="/edicao-pilates-foto12.jpeg" 
+                  alt="Pilates Professional" 
+                  className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent" />
@@ -583,12 +600,13 @@ export default function App() {
       <section className="relative py-40 md:py-64 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1920" 
+            src="/efeito-pilates-1.png" 
             alt="Pilates Background" 
-            className="w-full h-full object-cover grayscale opacity-40"
+            className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-brand-primary/80 to-transparent" />
+          <div className="absolute inset-0 bg-brand-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-transparent to-transparent" />
         </div>
         
         {/* Rotating Seal Element */}
@@ -643,9 +661,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-1 text-center lg:text-left">
-              <h3 className="text-3xl md:text-5xl font-display font-bold text-brand-accent mb-6">Público-Alvo</h3>
+              <h3 className="text-3xl md:text-5xl font-display font-bold text-brand-accent mb-6">Um evento pensado para profissionais como você</h3>
               <p className="text-brand-lavender/60 leading-relaxed text-lg">
-                Selecionamos os perfis que mais se beneficiarão desta imersão de 3 dias. Se você se encaixa em um destes, este evento foi feito para você.
+                O evento promete unir dois públicos em sintonia: profissionais capacitados e experimentados no mercado a um público de profissionais que buscam por inteligência de mercado, gerar autoridade e buscam conhecimento aplicável. Essa troca acontecerá em um formato de imersão de 3 dias. Se você é um destes, este evento foi feito para você.
               </p>
               <div className="h-1 w-20 bg-brand-accent mt-8 mx-auto lg:mx-0" />
             </div>
@@ -672,12 +690,11 @@ export default function App() {
       {/* Audience Image Banner */}
       <section className="w-full h-[30vh] md:h-[50vh] overflow-hidden relative">
         <img 
-          src="https://picsum.photos/seed/pilates-banner-2/1920/1080" 
+          src="/efeito-pilates-3.png" 
           alt="Pilates Objectives Banner" 
-          className="w-full h-full object-cover grayscale opacity-40"
+          className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-transparent to-brand-primary" />
       </section>
 
       {/* About Section - Objectives */}
@@ -748,27 +765,30 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { icon: Zap, title: "Conexão", desc: "A integração total entre mente e corpo. Buscamos a consciência profunda de cada fibra muscular, transformando o exercício em uma experiência de autoconhecimento." },
-              { icon: Star, title: "Equilíbrio", desc: "A harmonia entre força e flexibilidade. Onde a ciência da biomecânica encontra a fluidez do movimento clássico para criar resultados sustentáveis." },
-              { icon: Users, title: "Evolução", desc: "O aprimoramento constante da técnica. Um ambiente de elite onde profissionais compartilham conhecimento para elevar o padrão de todo o mercado." }
+              { image: "/edicao-pilates-foto9.jpeg", title: "Conexão", desc: "A integração total entre mente e corpo." },
+              { image: "/edicao-pilates-foto16.jpeg", title: "Equilíbrio", desc: "A harmonia entre força e flexibilidade." },
+              { image: "/edicao-pilates-foto1.jpeg", title: "Evolução", desc: "O aprimoramento constante da técnica." }
             ].map((pillar, i) => (
               <motion.div 
                 key={i}
-                whileHover={{ y: -10, borderColor: "rgba(203,255,137,0.4)", backgroundColor: "rgba(203, 255, 137, 0.05)" }}
-                className="group p-12 bg-brand-accent/[0.02] border border-white/10 glass-card transition-all duration-500 relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                className="group relative aspect-[3/4] overflow-hidden border border-white/10"
               >
-                <div className="absolute -right-8 -bottom-8 text-white/[0.03] group-hover:text-brand-accent/[0.05] transition-colors duration-500">
-                  <pillar.icon size={200} />
+                <img 
+                  src={pillar.image} 
+                  alt={pillar.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-10">
+                  <h3 className="text-3xl font-display font-bold text-brand-lavender mb-2 uppercase tracking-widest">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-brand-lavender/80 leading-relaxed">
+                    {pillar.desc}
+                  </p>
                 </div>
-                <div className="w-20 h-20 bg-brand-accent/10 rounded-none flex items-center justify-center mb-10 text-brand-accent border border-brand-accent/20 group-hover:bg-brand-accent group-hover:text-brand-primary transition-all duration-500">
-                  <pillar.icon size={32} />
-                </div>
-                <h3 className="text-3xl font-display font-bold text-brand-lavender mb-6 uppercase tracking-widest group-hover:text-brand-accent transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-brand-lavender/60 leading-relaxed text-lg relative z-10">
-                  {pillar.desc}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -809,11 +829,11 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                      src={`https://picsum.photos/seed/workshop-${i}/800/450`} 
-                      alt={speaker.workshop}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                      referrerPolicy="no-referrer"
-                    />
+                    src={i === 0 ? "/edicao-pilates-foto10.jpeg" : i === 1 ? "/edicao-pilates-foto12.jpeg" : "/edicao-pilates-foto16.jpeg"}
+                    alt={speaker.workshop}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    referrerPolicy="no-referrer"
+                  />
                     <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Workshop Prático
@@ -848,11 +868,11 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                      src={`https://picsum.photos/seed/lecture-${i}/800/450`} 
-                      alt={speaker.lecture}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                      referrerPolicy="no-referrer"
-                    />
+                    src={i === 0 ? "/edicao-pilates-foto1.jpeg" : i === 1 ? "/edicao-pilates-foto9.jpeg" : "/edicao-pilates-foto12.jpeg"}
+                    alt={speaker.lecture}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    referrerPolicy="no-referrer"
+                  />
                     <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Palestra Magna
@@ -888,7 +908,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto relative">
           <SectionTitle subtitle="Programação">Cronograma do Evento</SectionTitle>
 
-          <div className="flex flex-wrap gap-4 mb-12 justify-center">
+          <div className="grid grid-cols-3 gap-2 mb-12 justify-center">
             {SCHEDULE.map((day, index) => {
               const dayNumber = day.date.split(' ')[0];
               return (
@@ -897,14 +917,14 @@ export default function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveDay(index)}
-                  className={`px-10 py-4 font-display transition-all relative overflow-hidden group flex flex-col items-center ${
+                  className={`w-20 h-20 font-display transition-all relative overflow-hidden group flex flex-col items-center justify-center ${
                     activeDay === index 
                       ? 'bg-brand-accent text-brand-primary' 
                       : 'bg-white/5 text-brand-lavender/60 hover:bg-white/10'
                   }`}
                 >
-                  <span className="text-4xl font-bold leading-none mb-1 relative z-10">{dayNumber}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest opacity-60 relative z-10">{day.label}</span>
+                  <span className="text-xl font-bold leading-none mb-1 relative z-10">{dayNumber}</span>
+                  <span className="text-[9px] font-bold uppercase tracking-widest opacity-60 relative z-10">{day.label}</span>
                   {activeDay === index && (
                     <motion.div 
                       layoutId="activeTab"
@@ -951,7 +971,7 @@ export default function App() {
 
             <div className="relative">
               <div className="sticky top-32 p-12 border border-brand-accent/20 bg-brand-accent/5 overflow-hidden">
-                <Zap className="absolute -top-10 -right-10 text-brand-accent/10 w-64 h-64 rotate-12" />
+                <img src="/icone.svg" className="absolute -top-10 -right-10 text-brand-accent w-64 h-64 rotate-12 opacity-10" alt="Icone" />
                 <h3 className="text-3xl font-display font-bold mb-8 relative uppercase tracking-tight">Destaques do Dia</h3>
                 <ul className="space-y-8 relative">
                   {SCHEDULE[activeDay].highlights.map((highlight, i) => (
@@ -967,9 +987,9 @@ export default function App() {
                   whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
                   whileTap={{ scale: 0.98 }}
                   href={whatsappLink}
-                  className="mt-12 w-full py-4 bg-brand-accent text-brand-primary font-bold text-center block uppercase tracking-widest hover:shadow-[0_0_20px_rgba(203,255,137,0.3)] transition-all"
+                  className="mt-12 w-full py-4 px-6 bg-brand-accent text-brand-primary font-bold text-center block uppercase tracking-widest hover:shadow-[0_0_20px_rgba(203,255,137,0.3)] transition-all"
                 >
-                  Dúvidas? Fale conosco
+                  Quero me tornar uma autoridade
                 </motion.a>
               </div>
             </div>
@@ -987,22 +1007,24 @@ export default function App() {
           <SectionTitle subtitle="Depoimentos">Quem Já Viveu a Experiência</SectionTitle>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-6">
           {/* Row 1 - Left to Right */}
           <div className="flex overflow-hidden">
             <motion.div 
               animate={{ x: [0, -1920] }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="flex gap-8 whitespace-nowrap"
+              className="flex gap-6 whitespace-nowrap"
             >
               {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
-                <div 
+                <div
                   key={i}
-                  className="w-[400px] p-8 bg-brand-accent/[0.03] border border-white/5 glass-card shrink-0"
+                  className="w-[280px] sm:w-[400px] p-6 sm:p-8 bg-brand-accent/[0.03] border border-white/5 glass-card shrink-0"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-accent/20">
-                      <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                    <div className="w-12 h-12 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/20">
+                      <span className="text-brand-accent font-bold text-lg">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
                     </div>
                     <div className="whitespace-normal">
                       <h4 className="font-display font-bold text-brand-lavender">{testimonial.name}</h4>
@@ -1022,16 +1044,18 @@ export default function App() {
             <motion.div 
               animate={{ x: [-1920, 0] }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="flex gap-8 whitespace-nowrap"
+              className="flex gap-6 whitespace-nowrap"
             >
               {[...TESTIMONIALS, ...TESTIMONIALS].reverse().map((testimonial, i) => (
                 <div 
                   key={i}
-                  className="w-[400px] p-8 bg-brand-accent/[0.03] border border-white/5 glass-card shrink-0"
+                  className="w-[280px] sm:w-[400px] p-6 sm:p-8 bg-brand-accent/[0.03] border border-white/5 glass-card shrink-0"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-accent/20">
-                      <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                    <div className="w-12 h-12 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/20">
+                      <span className="text-brand-accent font-bold text-lg">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
                     </div>
                     <div className="whitespace-normal">
                       <h4 className="font-display font-bold text-brand-lavender">{testimonial.name}</h4>
@@ -1059,7 +1083,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Regular Plan */}
             <motion.div
               whileHover={{ y: -10 }}
@@ -1071,12 +1095,12 @@ export default function App() {
               </div>
               
               <div className="mb-8">
-                <span className="text-brand-lavender/40 line-through text-lg">R$ 1.000</span>
+                <span className="text-brand-lavender/40 line-through text-lg">R$ 1.199</span>
                 <div className="flex items-baseline">
-                  <span className="text-5xl font-display font-bold">R$ 800</span>
+                  <span className="text-5xl font-display font-bold">R$ 989</span>
                   <span className="text-brand-lavender/40 ml-2">à vista</span>
                 </div>
-                <p className="text-brand-accent text-sm mt-2">ou 12x de R$ 79,90</p>
+                <p className="text-brand-accent text-sm mt-2">ou 12x de R$ 99,90</p>
               </div>
 
               <ul className="space-y-4 mb-12 flex-grow">
@@ -1103,7 +1127,7 @@ export default function App() {
               </motion.a>
             </motion.div>
 
-            {/* VIP Plan */}
+            {/* Duplo Plan */}
             <motion.div
               whileHover={{ y: -10 }}
               className="p-10 border-2 border-brand-accent bg-brand-accent/5 relative overflow-hidden flex flex-col group"
@@ -1113,30 +1137,24 @@ export default function App() {
               
               <div className="mb-8 relative z-10">
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-2xl font-display font-bold">Ingresso VIP</h3>
+                  <h3 className="text-2xl font-display font-bold">Ingresso Duplo</h3>
                   <Star size={20} className="text-brand-accent fill-brand-accent" />
                 </div>
-                <p className="text-brand-lavender/40 text-sm">A experiência definitiva e exclusiva</p>
+                <p className="text-brand-lavender/40 text-sm">Desconto especial comprando 2 ingressos</p>
               </div>
               
               <div className="mb-8 relative z-10">
-                <span className="text-brand-lavender/40 line-through text-lg">R$ 1.500</span>
                 <div className="flex items-baseline">
-                  <span className="text-5xl font-display font-bold">R$ 1.200</span>
-                  <span className="text-brand-lavender/40 ml-2">à vista</span>
+                  <span className="text-2xl font-display font-bold text-brand-accent">Consulte condições</span>
                 </div>
-                <p className="text-brand-accent text-sm mt-2">ou 12x de R$ 119,90</p>
               </div>
 
               <ul className="space-y-4 mb-12 flex-grow relative z-10">
                 <li className="flex items-center gap-3 text-sm text-brand-lavender/70">
-                  <CheckCircle2 size={18} className="text-brand-accent" /> Tudo do ingresso comum
+                  <CheckCircle2 size={18} className="text-brand-accent" /> Tudo do ingresso comum (x2)
                 </li>
                 <li className="flex items-center gap-3 text-sm text-brand-lavender/70 font-bold">
                   <CheckCircle2 size={18} className="text-brand-accent" /> Assento nas primeiras fileiras
-                </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70 font-bold">
-                  <CheckCircle2 size={18} className="text-brand-accent" /> Jantar exclusivo com palestrantes
                 </li>
               </ul>
 
@@ -1148,63 +1166,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="w-full py-4 bg-brand-accent text-brand-primary hover:bg-brand-accent/80 transition-all text-center font-bold tracking-widest flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(203,255,137,0.3)] uppercase relative z-10"
               >
-                Quero ser VIP <ChevronRight size={18} />
-              </motion.a>
-            </motion.div>
-
-            {/* Elite Plan */}
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="p-10 border border-brand-beige bg-brand-beige/5 relative overflow-hidden flex flex-col group"
-            >
-              {/* Shimmer Effect */}
-              <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12" />
-
-              <div className="absolute top-0 right-0 bg-brand-beige text-brand-primary px-4 py-1 text-[10px] font-bold tracking-widest uppercase z-10">
-                Experiência Elite
-              </div>
-              
-              <div className="mb-8 relative z-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-2xl font-display font-bold text-brand-beige">Elite Experience</h3>
-                  <Zap size={20} className="text-brand-beige fill-brand-beige" />
-                </div>
-                <p className="text-brand-lavender/40 text-sm">Mentoria e networking de alto nível</p>
-              </div>
-              
-              <div className="mb-8 relative z-10">
-                <span className="text-brand-lavender/40 line-through text-lg">R$ 2.000</span>
-                <div className="flex items-baseline">
-                  <span className="text-5xl font-display font-bold text-brand-beige">R$ 1.600</span>
-                  <span className="text-brand-lavender/40 ml-2">à vista</span>
-                </div>
-                <p className="text-brand-beige text-sm mt-2">ou 12x de R$ 159,90</p>
-              </div>
-
-              <ul className="space-y-4 mb-12 flex-grow relative z-10">
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70">
-                  <CheckCircle2 size={18} className="text-brand-beige" /> Tudo do ingresso VIP
-                </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70 font-bold">
-                  <CheckCircle2 size={18} className="text-brand-beige" /> Mentoria individual pós-evento
-                </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70 font-bold">
-                  <CheckCircle2 size={18} className="text-brand-beige" /> Acesso vitalício às gravações
-                </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70 font-bold">
-                  <CheckCircle2 size={18} className="text-brand-beige" /> Kit ultra premium personalizado
-                </li>
-              </ul>
-
-              <motion.a 
-                whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
-                whileTap={{ scale: 0.98 }}
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-4 border border-brand-beige text-brand-beige hover:bg-brand-beige hover:text-brand-primary transition-all text-center font-bold tracking-widest hover:shadow-[0_0_30px_rgba(210,198,188,0.2)] uppercase relative z-10"
-              >
-                Selecionar Elite
+                Quero o Duplo <ChevronRight size={18} />
               </motion.a>
             </motion.div>
           </div>
@@ -1294,9 +1256,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-20">
             <div className="space-y-6">
-              <div className="font-display font-bold text-3xl tracking-tighter">
-                EDIÇÃO <span className="text-brand-accent">PILATES</span>
-              </div>
+              <img src="/logo-completo.svg" alt="Edição Pilates" className="h-12" />
               <p className="text-brand-lavender/40 text-sm leading-relaxed max-w-xs">
                 O maior encontro de profissionais de Pilates do Sul do Brasil. Técnica, ciência e networking de alto nível.
               </p>
@@ -1312,7 +1272,7 @@ export default function App() {
             <div className="flex md:justify-end gap-6">
               <motion.a 
                 whileHover={{ scale: 1.1, color: "#cbff89" }}
-                href="#" 
+                href="https://www.instagram.com/edicaopilates/" 
                 className="text-brand-lavender/40 transition-colors"
                 aria-label="Instagram"
               >
@@ -1331,7 +1291,7 @@ export default function App() {
 
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-brand-lavender/20 text-[10px] uppercase tracking-[0.2em]">
-              © 2024 Edição Pilates. Todos os direitos reservados.
+              © 2026 Edição Pilates. Todos os direitos reservados.
             </div>
             <div className="text-brand-lavender/20 text-[10px] uppercase tracking-[0.2em]">
               Desenvolvido para profissionais de elite.
