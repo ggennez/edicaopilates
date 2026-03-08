@@ -1237,15 +1237,7 @@ export default function App() {
               </div>
             </div>
             <div className="lg:col-span-2 aspect-video border border-white/10 overflow-hidden grayscale contrast-125">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.823456789012!2d-51.1890123!3d-23.3345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb43567890abcd%3A0x1234567890abcdef!2sUnimed%20Londrina%20-%20Sede%20Administrativa!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7326.869676245374!2d-51.18538984609376!3d-23.33625570000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb4369c61d0cd9%3A0xe2a37803ceb96b46!2sUnimed%20Londrina%20-%20Sede!5e0!3m2!1spt-BR!2sbr!4v1772971030337!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
