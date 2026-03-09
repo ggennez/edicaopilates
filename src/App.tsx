@@ -896,7 +896,7 @@ export default function App() {
                     </p>
                   </div>
                 </motion.div>
-              <</div>
+              </div>
             ))}
           </div>
         </div>
