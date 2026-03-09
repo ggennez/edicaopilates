@@ -817,8 +817,9 @@ export default function App() {
           <SectionTitle subtitle="Workshops e palestras">Desenvolvimento e Crescimento Profissional</SectionTitle>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {SPEAKERS.map((speaker, i) => (
-                <div key={i} className="contents">
+            {SPEAKERS.map((speaker, i) => {
+  return (
+    <React.Fragment key={speaker.id}>
                 {/* Workshop Block */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
