@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
     build: {
       target: "esnext",
       minify: "esbuild",
-      sourcemap: false,
+      sourcemap: true,
       chunkSizeWarningLimit: 1000
     }
   };
