@@ -494,7 +494,7 @@ export default function App() {
       </section>
 
       <Banner className="bg-brand-accent text-brand-primary border-y border-white/5">
-        Inscreva-se agora e ganhe acesso ao kit digital exclusivo • Pilates clássico • Biomecânica • Performance
+        Inscreva-se agora e ganhe acesso ao kit exclusivo
       </Banner>
 
       {/* About Section - Mission (Premium Version) */}
