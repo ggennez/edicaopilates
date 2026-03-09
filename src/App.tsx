@@ -349,7 +349,7 @@ export default function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-8 w-full z-60 border-b border-white/5 bg-brand-primary/80 backdrop-blur-xl">
+      <nav className="fixed top-8 w-full z-[60] border-b border-white/5 bg-brand-primary/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="font-display font-bold text-2xl md:text-3xl tracking-tighter group cursor-pointer">
@@ -818,7 +818,7 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SPEAKERS.map((speaker, i) => (
-              <React.Fragment key={speaker.id}>
+              <div key={speaker.id} className="space-y-8">
                 {/* Workshop Block */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -896,7 +896,7 @@ export default function App() {
                     </p>
                   </div>
                 </motion.div>
-                </React.Fragment>
+                </div>
             ))}
           </div>
         </div>
