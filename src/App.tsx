@@ -1183,7 +1183,7 @@ export default function App() {
               { q: "Onde será realizado o evento?", a: "O evento acontecerá no Anfiteatro da Unimed, na Gleba Palhano em Londrina - PR, um espaço moderno e confortável." },
               { q: "Posso parcelar o ingresso?", a: "Sim, oferecemos parcelamento em até 12x no cartão de crédito através da nossa plataforma segura de pagamentos." },
               { q: "O almoço está incluso?", a: "O almoço está incluso apenas para os ingressos VIP e Elite Experience. Para o ingresso comum, oferecemos coffee breaks de alta qualidade." },
-              { q: "Existe desconto para grupos?", a: "Sim! Para grupos acima de 5 pessoas, oferecemos condições especiais. Entre em contato via WhatsApp para saber mais." },
+              { q: "Existe desconto para grupos?", a: "Sim! Garanta um incrível desconto comprando 2 ingressos juntos, oferecemos condições especiais. Entre em contato via WhatsApp para saber mais." },
             ].map((faq, i) => (
               <FAQItem key={i} q={faq.q} a={faq.a} />
             ))}
