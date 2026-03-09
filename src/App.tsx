@@ -829,78 +829,9 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                    src={i === 0 ? "/edicao-pilates-foto10.jpeg" : i === 1 ? "/edicao-pilates-foto12.jpeg" : "/edicao-pilates-foto16.jpeg"}
-                    alt={speaker.workshop}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                    referrerPolicy="no-referrer"
-                  />
-                    <div className="absolute inset-0 bg-brand-primary/40" />
-                    <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
-                      Workshop Prático
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <h4 className="text-2xl font-display font-bold mb-4 text-brand-lavender group-hover:text-brand-accent transition-colors">
-                      {speaker.workshop}
-                    </h4>
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-accent/30">
-                        <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
-                      </div>
-                      <div>
-                        <p className="text-[10px] text-brand-accent font-bold uppercase tracking-widest">Ministrado por</p>
-                        <p className="text-sm font-medium text-brand-lavender/60">{speaker.name}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-brand-lavender/50 leading-relaxed mb-8">
-                      Uma imersão prática focada em resultados imediatos e domínio de ferramentas avançadas.
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* Lecture Block */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (i + 3) * 0.1 }}
-                  className="group relative bg-brand-primary border border-white/10 overflow-hidden glass-card"
-                >
-                  <div className="aspect-video overflow-hidden relative">
-                    <img 
-                    src={i === 0 ? "/edicao-pilates-foto1.jpeg" : i === 1 ? "/edicao-pilates-foto9.jpeg" : "/edicao-pilates-foto12.jpeg"}
-                    alt={speaker.lecture}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                    referrerPolicy="no-referrer"
-                  />
-                    <div className="absolute inset-0 bg-brand-primary/40" />
-                    <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
-                      Palestra Magna
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <h4 className="text-2xl font-display font-bold mb-4 text-brand-lavender group-hover:text-brand-accent transition-colors">
-                      {speaker.lecture}
-                    </h4>
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-accent/30">
-                        <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
-                      </div>
-                      <div>
-                        <p className="text-[10px] text-brand-accent font-bold uppercase tracking-widest">Apresentado por</p>
-                        <p className="text-sm font-medium text-brand-lavender/60">{speaker.name}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-brand-lavender/50 leading-relaxed mb-8">
-                      Insights estratégicos e visão de futuro para elevar seu posicionamento no mercado.
-                    </p>
-                  </div>
-                </motion.div>
-                </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                      src={i === 0 ? "/edicao-pilates-foto10.jpeg" : i === 1 ? "/edicao-pilates-foto12.jpeg" : "/edicao-pilates-foto16.jpeg"}
+                      alt={speaker.workshop}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-7
 
       {/* Schedule Section */}
       <section id="cronograma" className="py-24 px-6 bg-brand-primary relative overflow-hidden">
