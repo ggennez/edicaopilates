@@ -897,8 +897,9 @@ export default function App() {
                     </p>
                   </div>
                 </motion.div>
-              </div>
-            ))}
+                  </React.Fragment>
+  );
+})}
           </div>
         </div>
       </section>
