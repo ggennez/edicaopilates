@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Calendar, 
   MapPin, 
@@ -97,23 +97,23 @@ const Countdown = ({ compact = false }: { compact?: boolean }) => {
   }
 
   return (
-    <div className="flex gap-1 md:gap-4">
-      {[
-        { label: 'Dias', value: timeLeft.days },
-        { label: 'Horas', value: timeLeft.hours },
-        { label: 'Minutos', value: timeLeft.minutes },
-        { label: 'Segundos', value: timeLeft.seconds }
-      ].map((item, i) => (
-        <div key={i} className="text-center w-12 h-12 md:w-20 md:h-20 border border-brand-accent/20 flex flex-col items-center justify-center bg-brand-accent/5">
-          <div className="text-sm md:text-2xl font-display font-bold text-brand-accent mb-0.5 tabular-nums">
-            {String(item.value).padStart(2, '0')}
-          </div>
-          <div className="text-[6px] md:text-[9px] font-bold uppercase tracking-widest text-brand-lavender/60">
-            {item.label}
-          </div>
+        <div className="flex gap-1 md:gap-4">
+          {[
+            { label: 'Dias', value: timeLeft.days },
+            { label: 'Horas', value: timeLeft.hours },
+            { label: 'Minutos', value: timeLeft.minutes },
+            { label: 'Segundos', value: timeLeft.seconds }
+          ].map((item, i) => (
+            <div key={i} className="text-center w-12 h-12 md:w-20 md:h-20 border border-brand-accent/20 flex flex-col items-center justify-center bg-brand-accent/5">
+              <div className="text-sm md:text-2xl font-display font-bold text-brand-accent mb-0.5 tabular-nums">
+                {String(item.value).padStart(2, '0')}
+              </div>
+              <div className="text-[6px] md:text-[9px] font-bold uppercase tracking-widest text-brand-lavender/60">
+                {item.label}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
   );
 };
 
@@ -349,7 +349,7 @@ export default function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-8 w-full z-[60] border-b border-white/5 bg-brand-primary/80 backdrop-blur-xl">
+      <nav className="fixed top-8 w-full z-60 border-b border-white/5 bg-brand-primary/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="font-display font-bold text-2xl md:text-3xl tracking-tighter group cursor-pointer">
@@ -497,8 +497,9 @@ export default function App() {
         Inscreva-se agora e ganhe acesso ao kit digital exclusivo • Pilates clássico • Biomecânica • Performance
       </Banner>
 
-      {/* About Section - Mission */}
+      {/* About Section - Mission (Premium Version) */}
       <section id="sobre" className="relative py-40 md:py-72 px-6 overflow-hidden">
+        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/edicao-pilates-foto3.jpeg" 
@@ -512,6 +513,7 @@ export default function App() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Texto 1 */}
             <div className="lg:col-span-4 space-y-8">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -529,6 +531,7 @@ export default function App() {
               </motion.div>
             </div>
 
+            {/* Foto (Central com Eixo Z) */}
             <div className="lg:col-span-4 relative flex justify-center items-center py-20 lg:py-0">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -545,6 +548,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent" />
               </motion.div>
 
+              {/* Elemento Animado em Looping */}
               <motion.div 
                 animate={{ 
                   rotate: 360,
@@ -559,6 +563,7 @@ export default function App() {
                 <div className="w-4 h-4 bg-brand-accent rounded-full absolute top-0" />
               </motion.div>
               
+              {/* Floating Card (Eixo Z) */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -570,6 +575,7 @@ export default function App() {
               </motion.div>
             </div>
 
+            {/* Texto 2 */}
             <div className="lg:col-span-4 lg:pl-12">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -590,7 +596,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Promises Section */}
+      {/* Promises Section (Redesigned) */}
       <section className="relative py-40 md:py-64 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -603,6 +609,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-brand-primary via-transparent to-transparent" />
         </div>
         
+        {/* Rotating Seal Element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-10">
           <motion.div 
             animate={{ rotate: 360 }}
@@ -692,6 +699,7 @@ export default function App() {
 
       {/* About Section - Objectives */}
       <section className="py-32 md:py-56 px-6 bg-brand-primary relative overflow-hidden">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div 
             animate={{ 
@@ -729,6 +737,7 @@ export default function App() {
                 <h4 className="text-3xl font-display font-bold mb-6 text-brand-lavender group-hover:text-brand-accent transition-colors uppercase tracking-tight">{obj.title}</h4>
                 <p className="text-brand-lavender/60 leading-relaxed text-lg">{obj.desc}</p>
                 
+                {/* Visual Graphic Element */}
                 <div className="mt-8 h-1 w-full bg-white/5 overflow-hidden">
                   <motion.div 
                     initial={{ x: "-100%" }}
@@ -809,7 +818,7 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SPEAKERS.map((speaker, i) => (
-              <div key={speaker.id} className="space-y-8">
+              <React.Fragment key={i}>
                 {/* Workshop Block */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -820,11 +829,11 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                      src={i === 0 ? "/edicao-pilates-foto10.jpeg" : i === 1 ? "/edicao-pilates-foto12.jpeg" : "/edicao-pilates-foto16.jpeg"}
-                      alt={speaker.workshop}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                      referrerPolicy="no-referrer"
-                    />
+                    src={i === 0 ? "/edicao-pilates-foto10.jpeg" : i === 1 ? "/edicao-pilates-foto12.jpeg" : "/edicao-pilates-foto16.jpeg"}
+                    alt={speaker.workshop}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    referrerPolicy="no-referrer"
+                  />
                     <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Workshop Prático
@@ -859,11 +868,11 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                      src={i === 0 ? "/edicao-pilates-foto1.jpeg" : i === 1 ? "/edicao-pilates-foto9.jpeg" : "/edicao-pilates-foto12.jpeg"}
-                      alt={speaker.lecture}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
-                      referrerPolicy="no-referrer"
-                    />
+                    src={i === 0 ? "/edicao-pilates-foto1.jpeg" : i === 1 ? "/edicao-pilates-foto9.jpeg" : "/edicao-pilates-foto12.jpeg"}
+                    alt={speaker.lecture}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    referrerPolicy="no-referrer"
+                  />
                     <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Palestra Magna
@@ -887,7 +896,7 @@ export default function App() {
                     </p>
                   </div>
                 </motion.div>
-              </div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -1014,7 +1023,7 @@ export default function App() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/20">
                       <span className="text-brand-accent font-bold text-lg">
-                        {testimonial.name.split(' ').map((n: string) => n[0]).join('')}
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
                     <div className="whitespace-normal">
@@ -1045,7 +1054,7 @@ export default function App() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/20">
                       <span className="text-brand-accent font-bold text-lg">
-                        {testimonial.name.split(' ').map((n: string) => n[0]).join('')}
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
                     <div className="whitespace-normal">
@@ -1123,6 +1132,7 @@ export default function App() {
               whileHover={{ y: -10 }}
               className="p-10 border-2 border-brand-accent bg-brand-accent/5 relative overflow-hidden flex flex-col group"
             >
+              {/* Shimmer Effect */}
               <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12" />
               
               <div className="mb-8 relative z-10">
