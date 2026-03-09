@@ -26,10 +26,10 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
-      target: "esnext",
-      minify: "esbuild",
-      sourcemap: true,
-      chunkSizeWarningLimit: 1000
-    }
+  target: "esnext",
+  minify: false,
+  sourcemap: true,
+  chunkSizeWarningLimit: 1000
+}
   };
 });
