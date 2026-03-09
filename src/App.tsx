@@ -819,7 +819,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SPEAKERS.map((speaker, i) => {
   return (
-    <React.Fragment key={speaker.id}>
+    <div key={speaker.id} className="space-y-8">
                 {/* Workshop Block */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -897,7 +897,7 @@ export default function App() {
                     </p>
                   </div>
                 </motion.div>
-                  </React.Fragment>
+                  </div>
   );
 })}
           </div>
