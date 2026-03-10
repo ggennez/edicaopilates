@@ -11,7 +11,7 @@ export interface Speaker {
 export interface ScheduleItem {
   time: string;
   title: string;
-  type: 'palestra' | 'workshop' | 'outro';
+  type: 'palestra' | 'workshop';
   speaker?: string;
 }
 
@@ -77,12 +77,12 @@ export const SCHEDULE: DaySchedule[] = [
       'Networking'
     ],
     items: [
-      { time: '15:00', title: 'Credenciamento', type: 'outro' },
-      { time: '15:30', title: 'Abertura no Anfiteatro', type: 'outro' },
+      { time: '15:00', title: 'Credenciamento'},
+      { time: '15:30', title: 'Abertura no Anfiteatro'},
       { time: '16:00', title: 'Palestra com Paula Leão', speaker: 'Paula Leão', type: 'palestra' },
       { time: '17:00', title: 'Palestra com Janaína Cintas', speaker: 'Janaína Cintas', type: 'palestra' },
       { time: '18:00', title: 'Palestra com Ge Gurak', speaker: 'Ge Gurak', type: 'palestra' },
-      { time: '19:00', title: 'Encerramento', type: 'outro' }
+      { time: '19:00', title: 'Encerramento'}
     ]
   },
   {
@@ -95,11 +95,11 @@ export const SCHEDULE: DaySchedule[] = [
     ],
     items: [
       { time: '09:00', title: 'Workshop: Pilates na Escola', speaker: 'Paula Leão', type: 'workshop' },
-      { time: '12:00', title: 'Almoço', type: 'outro' },
+      { time: '12:00', title: 'Almoço'},
       { time: '13:00', title: 'Workshop: Avaliação e Tratamento', speaker: 'Janaína Cintas', type: 'workshop' },
-      { time: '16:00', title: 'Coffee Break', type: 'outro' },
+      { time: '16:00', title: 'Coffee Break'},
       { time: '16:30', title: 'Workshop: Mulheres 40+', speaker: 'Ge Gurak', type: 'workshop' },
-      { time: '19:30', title: 'Encerramento', type: 'outro' }
+      { time: '19:30', title: 'Encerramento'}
     ]
   },
   {
@@ -111,8 +111,8 @@ export const SCHEDULE: DaySchedule[] = [
       'Encerramento'
     ],
     items: [
-      { time: '09:00', title: 'Aula Coletiva', type: 'outro' },
-      { time: '10:30', title: 'Mesa Redonda no Anfiteatro', type: 'outro' }
+      { time: '09:00', title: 'Aula Coletiva'},
+      { time: '10:30', title: 'Mesa Redonda no Anfiteatro'}
     ]
   }
 ];
