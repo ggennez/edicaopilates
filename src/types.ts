@@ -41,7 +41,7 @@ export const SPEAKERS: Speaker[] = [
   {
     id: '1',
     name: 'Paula Leão',
-    role: 'Especialista em Pilates Clássico',
+    role: 'Especialista em Pilates Kids e Teens',
     bio: 'Referência nacional no método clássico, Paula traz uma abordagem purista e transformadora para o movimento.',
     lecture: 'A Essência do Contrology',
     workshop: 'Pilates na Escola',
