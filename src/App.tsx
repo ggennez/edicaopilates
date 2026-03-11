@@ -23,7 +23,8 @@ import { SPEAKERS, SCHEDULE, TESTIMONIALS, PROMISES, Speaker, DaySchedule } from
 const SocialProofBar = () => {
   const [index, setIndex] = useState(0);
   const messages = [
-    "Ingressos LIBERADOS"
+    "Ingressos LIBERADOS",
+    "Aproveite valores do 1º lote!"
   ];
 
   React.useEffect(() => {
