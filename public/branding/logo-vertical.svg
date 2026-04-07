@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.44 259.86">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: AvantGardeITCbyBT-Book, 'AvantGarde Bk BT';
+      }
+
+      .cls-2 {
+        font-size: 140.47px;
+      }
+
+      .cls-3 {
+        fill: #cbff89;
+        font-family: AvantGardeITCbyBT-Demi, 'AvantGarde Bk BT';
+        font-weight: 300;
+      }
+
+      .cls-4 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.04em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(35.7 120.17)"><tspan class="cls-1"><tspan class="cls-5" x="0" y="0">e</tspan><tspan class="cls-4" x="76.69" y="0">f</tspan><tspan class="cls-9" x="104.07" y="0">e</tspan><tspan class="cls-7" x="183.56" y="0">i</tspan><tspan class="cls-10" x="206.2" y="0">to</tspan></tspan><tspan class="cls-3"><tspan class="cls-10" x="-35.7" y="106.56">p</tspan><tspan class="cls-6" x="49.15" y="106.56">i</tspan><tspan class="cls-8" x="73.57" y="106.56">lates</tspan></tspan></text>
+</svg>

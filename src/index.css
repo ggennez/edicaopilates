@@ -1,0 +1,74 @@
+/* Fonts and Tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Design tokens */
+@theme {
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-display: "Bricolage Grotesque", sans-serif;
+
+  --color-brand-primary: #1f3335;
+  --color-brand-accent: #cbff89;
+  --color-brand-beige: #d2c6bc;
+  --color-brand-lavender: #d4d1d8;
+  --color-brand-purple: #5c4a61;
+}
+
+/* Base structure */
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-brand-primary text-brand-lavender font-sans antialiased selection:bg-brand-accent selection:text-brand-primary;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    @apply tracking-tight;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .u-bg-dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .u-animate-bg-gradient {
+    background-size: 200% 200%;
+    animation: gradient-move 15s ease infinite;
+  }
+}
+
+/* Components */
+.text-accent-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-brand-beige;
+}
+
+.border-interactive {
+  @apply border border-white/10 hover:border-brand-accent/50 transition-colors duration-300;
+}
+
+.surface-frosted {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10;
+}
+
+/* Animations */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.u-animate-float {
+  animation: float 6s ease-in-out infinite;
+}
