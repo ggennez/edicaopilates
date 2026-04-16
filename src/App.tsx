@@ -105,7 +105,7 @@ const Countdown = ({ compact = false }: { compact?: boolean }) => {
   }
 
   return (
-        <div className="flex gap-1 md:gap-4">
+        <div className="w-full flex justify-center gap-1 md:gap-4 px-2 md:px-0">
           {[
             { label: 'Dias', value: timeLeft.days },
             { label: 'Horas', value: timeLeft.hours },
@@ -452,17 +452,43 @@ export default function App() {
             className="max-w-6xl mx-auto text-center"
           >
             <div className="flex flex-col items-center gap-8 mb-12">
-              <motion.span 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 }}
-                className="px-6 py-2 border border-brand-accent/20 text-brand-accent text-[10px] font-bold tracking-[0.4em] uppercase bg-brand-accent/5 backdrop-blur-sm"
+                className="flex items-center gap-4"
               >
-                Experiência de Excelência
-              </motion.span>
+                <div className="flex -space-x-4">
+                  <img
+                    src={assetUrl('images/speakers/foto-ge-gurak.png')}
+                    alt="Ge Gurak"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+                    referrerPolicy="no-referrer"
+                  />
+                  <img
+                    src={assetUrl('images/speakers/foto-janaina.png')}
+                    alt="Janaína Cintas"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+                    referrerPolicy="no-referrer"
+                  />
+                  <img
+                    src={assetUrl('images/speakers/foto-paula-leao.png')}
+                    alt="Paula Leão"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <p className="text-xs md:text-sm font-bold tracking-[0.12em] uppercase text-brand-accent/90 text-left leading-snug">
+                  Ge Gurak
+                  <br />
+                  Janaína Cintas
+                  <br />
+                  Paula Leão
+                </p>
+              </motion.div>
               <h1 className="text-5xl sm:text-7xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight text-brand-lavender">
-                A Evolução <br />
-                <span className="text-brand-lavender">do Movimento</span>
+                3 Dias que vão mudar <br />
+                <span className="text-brand-lavender">sua carreira com o Pilates</span>
               </h1>
             </div>
 
@@ -495,6 +521,11 @@ export default function App() {
                 <span className="text-brand-lavender/30 text-[10px] font-bold tracking-[0.3em] flex items-center gap-3 uppercase">
                   <MapPin size={14} className="text-brand-accent" /> Londrina, PR
                 </span>
+                <img
+                  src={assetUrl('images/gallery/Logos.png')}
+                  alt="Logos dos patrocinadores"
+                  className="w-full max-w-lg opacity-90 object-contain"
+                />
               </div>
             </div>
           </motion.div>
@@ -517,7 +548,7 @@ export default function App() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src={assetUrl('images/gallery/edicao-pilates-foto3.jpeg')} 
+            src={assetUrl('images/gallery/topo.png')} 
             alt="Pilates Professional Environment" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -555,7 +586,7 @@ export default function App() {
                 className="relative z-10 w-full aspect-[3/4] max-w-[320px] overflow-hidden border border-white/10 shadow-2xl"
               >
                 <img 
-                  src={assetUrl('images/gallery/edicao-pilates-foto12.jpeg')} 
+                  src={assetUrl('images/gallery/topo.png')} 
                   alt="Pilates Professional" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -615,7 +646,7 @@ export default function App() {
       <section className="relative py-40 md:py-64 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src={assetUrl('images/effects/efeito-pilates-1.png')} 
+            src={assetUrl('images/gallery/salao.jpg')} 
             alt="Pilates Background" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -705,7 +736,7 @@ export default function App() {
       {/* Audience Image Banner */}
       <section className="w-full h-[30vh] md:h-[50vh] overflow-hidden relative">
         <img 
-          src={assetUrl('images/effects/efeito-pilates-3.png')} 
+          src={assetUrl('images/gallery/amplo.jpg')} 
           alt="Pilates Objectives Banner" 
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
@@ -844,10 +875,9 @@ export default function App() {
                     <img 
                     src={assetUrl(i === 0 ? "images/gallery/edicao-pilates-foto10.jpeg" : i === 1 ? "images/gallery/edicao-pilates-foto12.jpeg" : "images/gallery/edicao-pilates-foto16.jpeg")}
                     alt={speaker.workshop}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                    <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Workshop Prático
                     </div>
@@ -881,12 +911,11 @@ export default function App() {
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img 
-                    src={assetUrl(i === 0 ? "images/gallery/edicao-pilates-foto1.jpeg" : i === 1 ? "images/gallery/edicao-pilates-foto9.jpeg" : "images/gallery/edicao-pilates-foto12.jpeg")}
+                    src={assetUrl(i === 0 ? "images/gallery/edicao-pilates-foto1.jpeg" : i === 1 ? "images/gallery/edicao-pilates-foto9.jpeg" : "images/gallery/edicao-pilates-foto3.jpeg")}
                     alt={speaker.lecture}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                    <div className="absolute inset-0 bg-brand-primary/40" />
                     <div className="absolute top-4 left-4 bg-brand-accent text-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                       Palestra Magna
                     </div>
@@ -921,7 +950,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto relative">
           <SectionTitle subtitle="Programação">Cronograma do Evento</SectionTitle>
 
-          <div className="grid grid-cols-3 gap-2 mb-12 justify-center">
+          <div className="flex items-center justify-center gap-2 mb-12">
             {SCHEDULE.map((day, index) => {
               const dayNumber = day.date.split(' ')[0];
               return (
@@ -1100,31 +1129,48 @@ export default function App() {
             {/* Regular Plan */}
             <motion.div
               whileHover={{ y: -10 }}
-              className="p-10 border border-white/10 surface-frosted flex flex-col"
+              className="relative p-10 bg-white text-brand-primary flex flex-col overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.25)]"
             >
-              <div className="mb-8">
-                <h3 className="text-2xl font-display font-bold mb-2">Ingresso Comum</h3>
-                <p className="text-brand-lavender/40 text-sm">Acesso completo aos 3 dias de evento</p>
+              <img
+                src={assetUrl('branding/icon.svg')}
+                alt="Ícone decorativo"
+                className="absolute -right-10 -bottom-10 w-56 h-56 opacity-10 pointer-events-none"
+              />
+
+              <div className="absolute inset-y-6 -left-3 z-0 flex flex-col justify-between pointer-events-none">
+                {Array.from({ length: 8 }).map((_, idx) => (
+                  <span key={`left-notch-${idx}`} className="w-6 h-6 rounded-full bg-brand-primary block" />
+                ))}
               </div>
-              
-              <div className="mb-8">
-                <span className="text-brand-lavender/40 line-through text-lg">R$ 1.199</span>
-                <div className="flex items-baseline">
-                  <span className="text-5xl font-display font-bold">R$ 989</span>
-                  <span className="text-brand-lavender/40 ml-2">à vista</span>
-                </div>
-                <p className="text-brand-accent text-sm mt-2">ou 12x de R$ 99,90</p>
+              <div className="absolute inset-y-6 -right-3 z-0 flex flex-col justify-between pointer-events-none">
+                {Array.from({ length: 8 }).map((_, idx) => (
+                  <span key={`right-notch-${idx}`} className="w-6 h-6 rounded-full bg-brand-primary block" />
+                ))}
               </div>
 
-              <ul className="space-y-4 mb-12 flex-grow">
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70">
-                  <CheckCircle2 size={18} className="text-brand-accent" /> Acesso a todas as palestras
+              <div className="mb-8 relative z-10">
+                <h3 className="text-2xl font-display font-bold mb-2">Ingresso Comum</h3>
+                <p className="text-brand-primary/70 text-sm">Acesso completo aos 3 dias de evento</p>
+              </div>
+              
+              <div className="mb-8 relative z-10">
+                <span className="text-brand-primary/50 line-through text-lg">R$ 1.199</span>
+                <div className="flex items-baseline">
+                  <span className="text-5xl font-display font-bold">R$ 989</span>
+                  <span className="text-brand-primary/60 ml-2">à vista</span>
+                </div>
+                <p className="text-brand-primary text-sm mt-2">ou 12x de R$ 99,90</p>
+              </div>
+
+              <ul className="space-y-4 mb-12 flex-grow relative z-10">
+                <li className="flex items-center gap-3 text-sm text-brand-primary/80">
+                  <CheckCircle2 size={18} className="text-brand-primary" /> Acesso a todas as palestras
                 </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70">
-                  <CheckCircle2 size={18} className="text-brand-accent" /> Participação nos workshops
+                <li className="flex items-center gap-3 text-sm text-brand-primary/80">
+                  <CheckCircle2 size={18} className="text-brand-primary" /> Participação nos workshops
                 </li>
-                <li className="flex items-center gap-3 text-sm text-brand-lavender/70">
-                  <CheckCircle2 size={18} className="text-brand-accent" /> Certificado digital
+                <li className="flex items-center gap-3 text-sm text-brand-primary/80">
+                  <CheckCircle2 size={18} className="text-brand-primary" /> Certificado digital
                 </li>
               </ul>
 
@@ -1134,9 +1180,9 @@ export default function App() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 border border-white/20 hover:bg-brand-accent hover:text-brand-primary transition-all text-center font-bold tracking-widest hover:shadow-[0_0_20px_rgba(203,255,137,0.1)] uppercase"
+                className="w-full py-4 border border-brand-primary bg-brand-primary text-white hover:bg-white hover:text-brand-primary transition-all text-center font-bold tracking-widest uppercase relative z-10"
               >
-                Selecionar Plano
+                Garantir ingresso
               </motion.a>
             </motion.div>
           </div>
