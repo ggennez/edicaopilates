@@ -1040,8 +1040,7 @@ export default function App() {
       </section>
 
       <Banner className="bg-brand-accent text-brand-primary">
-        Últimas vagas para o ingresso VIP • Almoço exclusivo • Kit premium • Networking de elite
-      </Banner>
+Adquira seu ingresso      </Banner>
 
       {/* Testimonials Section */}
       <section className="py-32 md:py-56 bg-brand-primary relative overflow-hidden">
