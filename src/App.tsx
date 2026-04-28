@@ -436,12 +436,15 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative pt-64 pb-20 md:pt-80 md:pb-32 px-6 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={assetUrl('images/effects/efeito-pilates-4.png')} 
-            alt="Hero Background" 
-            className="w-full h-full object-cover opacity-100"
-            referrerPolicy="no-referrer"
-          />
+          <video
+  src={assetUrl('images/gallery/convite-ste.mp4')}
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full h-full object-cover opacity-100"
+  referrerPolicy="no-referrer"
+/>
           <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
