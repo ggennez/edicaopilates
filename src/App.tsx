@@ -434,113 +434,138 @@ export default function App() {
 
       <main id="conteudo-principal">
       {/* Hero Section */}
-      <section className="relative pt-64 pb-20 md:pt-80 md:pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <video
-  src={assetUrl('images/gallery/convite-ste.mp4')}
-  autoPlay
-  muted
-  loop
-  playsInline
-  className="w-full h-full object-cover opacity-100"
-  referrerPolicy="no-referrer"
-/>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent" />
+    <section className="relative pt-64 pb-20 md:pt-80 md:pb-32 px-6 overflow-hidden">
+  {/* Background Video */}
+  <div className="absolute inset-0 z-0">
+    <video
+      src={assetUrl("images/gallery/convite-ste.mp4")}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      className="w-full h-full object-cover"
+      referrerPolicy="no-referrer"
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/40 to-transparent" />
+  </div>
+
+  {/* Content */}
+  <div className="max-w-7xl mx-auto relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      className="max-w-6xl mx-auto text-center"
+    >
+      <div className="flex flex-col items-center gap-8 mb-12">
+        {/* Speakers */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5 }}
+          className="flex items-center gap-4"
+        >
+          <div className="flex -space-x-4">
+            <img
+              src={assetUrl("images/speakers/foto-ge-gurak.png")}
+              alt="Ge Gurak"
+              className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+              referrerPolicy="no-referrer"
+            />
+            <img
+              src={assetUrl("images/speakers/foto-janaina.png")}
+              alt="Janaína Cintas"
+              className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+              referrerPolicy="no-referrer"
+            />
+            <img
+              src={assetUrl("images/speakers/foto-paula-leao.png")}
+              alt="Paula Leão"
+              className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          <p className="text-xs md:text-sm font-bold tracking-[0.12em] uppercase text-brand-accent/90 text-left leading-snug">
+            Ge Gurak
+            <br />
+            Janaína Cintas
+            <br />
+            Paula Leão
+          </p>
+        </motion.div>
+
+        {/* Title */}
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight text-brand-lavender">
+          3 Dias que vão mudar <br />
+          <span className="text-brand-lavender">
+            sua carreira com o Pilates
+          </span>
+        </h1>
+      </div>
+
+      {/* Countdown */}
+      <div className="flex justify-center mb-16">
+        <div className="bg-white/[0.02] border border-white/5 p-6 surface-frosted max-w-sm w-full backdrop-blur-2xl relative group flex flex-col items-center">
+          <div className="absolute -inset-0.5 bg-brand-accent/20 blur opacity-0 group-hover:opacity-100 transition duration-1000" />
+          <div className="relative w-full flex flex-col items-center">
+            <p className="text-[8px] font-bold tracking-[0.4em] text-brand-accent/60 uppercase mb-4 text-center">
+              O evento começa em
+            </p>
+            <Countdown />
+          </div>
         </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-6xl mx-auto text-center"
+      </div>
+
+      {/* Description */}
+      <div className="max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-brand-lavender/50 font-light leading-relaxed mb-12">
+          Três dias de imersão profunda com as maiores referências do Pilates
+          nacional. Onde a técnica encontra a ciência em um ambiente de alto
+          padrão.
+        </p>
+
+        {/* CTA */}
+        <div className="flex flex-col items-center gap-6">
+          <motion.a
+            whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
+            whileTap={{ scale: 0.98 }}
+            href="#planos"
+            className="px-16 py-6 bg-brand-accent text-brand-primary font-bold text-sm tracking-[0.2em] flex items-center justify-center gap-4 group hover:shadow-[0_20px_40px_rgba(203,255,137,0.2)] transition-all uppercase"
           >
-            <div className="flex flex-col items-center gap-8 mb-12">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-                className="flex items-center gap-4"
-              >
-                <div className="flex -space-x-4">
-                  <img
-                    src={assetUrl('images/speakers/foto-ge-gurak.png')}
-                    alt="Ge Gurak"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
-                    referrerPolicy="no-referrer"
-                  />
-                  <img
-                    src={assetUrl('images/speakers/foto-janaina.png')}
-                    alt="Janaína Cintas"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
-                    referrerPolicy="no-referrer"
-                  />
-                  <img
-                    src={assetUrl('images/speakers/foto-paula-leao.png')}
-                    alt="Paula Leão"
-                    className="w-20 h-20 rounded-full object-cover border-2 border-brand-accent/70"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <p className="text-xs md:text-sm font-bold tracking-[0.12em] uppercase text-brand-accent/90 text-left leading-snug">
-                  Ge Gurak
-                  <br />
-                  Janaína Cintas
-                  <br />
-                  Paula Leão
-                </p>
-              </motion.div>
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight text-brand-lavender">
-                3 Dias que vão mudar <br />
-                <span className="text-brand-lavender">sua carreira com o Pilates</span>
-              </h1>
-            </div>
+            Garantir minha vaga
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-2 transition-transform"
+            />
+          </motion.a>
 
-            <div className="flex justify-center mb-16">
-              <div className="bg-white/[0.02] border border-white/5 p-6 surface-frosted max-w-sm w-full backdrop-blur-2xl relative group flex flex-col items-center">
-                <div className="absolute -inset-0.5 bg-brand-accent/20 blur opacity-0 group-hover:opacity-100 transition duration-1000"></div>
-                <div className="relative w-full flex flex-col items-center">
-                  <p className="text-[8px] font-bold tracking-[0.4em] text-brand-accent/60 uppercase mb-4 text-center">O evento começa em</p>
-                  <Countdown />
-                </div>
-              </div>
-            </div>
-            
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-brand-lavender/50 font-light leading-relaxed mb-12">
-                Três dias de imersão profunda com as maiores referências do Pilates nacional. 
-                Onde a técnica encontra a ciência em um ambiente de alto padrão.
-              </p>
-              
-              <div className="flex flex-col items-center gap-6">
-                <motion.a
-                  whileHover={{ scale: 1.02, filter: "brightness(1.1)" }}
-                  whileTap={{ scale: 0.98 }}
-                  href="#planos"
-                  className="px-16 py-6 bg-brand-accent text-brand-primary font-bold text-sm tracking-[0.2em] flex items-center justify-center gap-4 group hover:shadow-[0_20px_40px_rgba(203,255,137,0.2)] transition-all uppercase"
-                >
-                  Garantir minha vaga
-                  <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                </motion.a>
-                <span className="text-brand-lavender/30 text-[10px] font-bold tracking-[0.3em] flex items-center gap-3 uppercase">
-                  <MapPin size={14} className="text-brand-accent" /> Londrina, PR
-                </span>
-                <img
-                  src={assetUrl('images/gallery/Logos.png')}
-                  alt="Logos dos patrocinadores"
-                  className="w-full max-w-lg opacity-90 object-contain"
-                />
-              </div>
-            </div>
-          </motion.div>
+          <span className="text-brand-lavender/30 text-[10px] font-bold tracking-[0.3em] flex items-center gap-3 uppercase">
+            <MapPin size={14} className="text-brand-accent" />
+            Londrina, PR
+          </span>
+
+          <img
+            src={assetUrl("images/gallery/Logos.png")}
+            alt="Logos dos patrocinadores"
+            className="w-full max-w-lg opacity-90 object-contain"
+            referrerPolicy="no-referrer"
+          />
         </div>
+      </div>
+    </motion.div>
+  </div>
 
-        {/* Decorative Elements */}
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] border border-brand-accent/[0.03] rounded-full pointer-events-none"
-        />
-      </section>
+  {/* Decorative Circle */}
+  <motion.div
+    animate={{ rotate: 360 }}
+    transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] border border-brand-accent/[0.03] rounded-full pointer-events-none"
+  />
+</section>
 
       <Banner className="bg-brand-accent text-brand-primary border-y border-white/5">
         Inscreva-se agora e ganhe acesso ao kit exclusivo
