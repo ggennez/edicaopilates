@@ -18,7 +18,7 @@ import {
 import { SPEAKERS, SCHEDULE, TESTIMONIALS, PROMISES } from './data';
 import { Speaker, PromiseItem } from './types';
 
-const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${encodeURI(path.replace(/^\/+/, ''))}`;
 
 const PROMISE_ICON_MAP: Record<PromiseItem['icon'], React.ComponentType<{ size?: number; className?: string }>> = {
   CheckCircle2,
@@ -342,6 +342,14 @@ const SpeakerCard: React.FC<{ speaker: Speaker; index: number }> = ({ speaker, i
 export default function App() {
   const [activeDay, setActiveDay] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const whatsappLink = "https://wa.me/5543999955954?text=Olá! Gostaria de saber mais sobre o Edição Pilates.";
 
@@ -435,15 +443,11 @@ export default function App() {
       <main id="conteudo-principal">
       {/* Hero Section */}
     <section className="relative pt-64 pb-20 md:pt-80 md:pb-32 px-6 overflow-hidden">
-  {/* Background Video */}
+  {/* Background Image */}
   <div className="absolute inset-0 z-0">
-    <video
-      src={assetUrl("images/gallery/convite-ste.mp4")}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
+    <img 
+      src={assetUrl("images/effects/efeito-pilates-1.png")} 
+      alt="Pilates Background" 
       className="w-full h-full object-cover"
       referrerPolicy="no-referrer"
     />
@@ -570,6 +574,17 @@ export default function App() {
       <Banner className="bg-brand-accent text-brand-primary border-y border-white/5">
         Inscreva-se agora e ganhe acesso ao kit exclusivo
       </Banner>
+
+      {/* Video Section */}
+      <section className="relative bg-brand-primary">
+        <video
+          src={assetUrl("images/gallery/Convite-ste.mp4")}
+          controls
+          preload="metadata"
+          className="w-full h-auto"
+          referrerPolicy="no-referrer"
+        />
+      </section>
 
       {/* About Section - Mission (Premium Version) */}
       <section id="sobre" className="relative py-40 md:py-72 px-6 overflow-hidden">
